@@ -15,7 +15,7 @@ RUNNING_DIR=$(dirname $0)
 WORKSPACE="$BASEDIR"
 DOCKER_ROOT="$WORKSPACE/$RUNNING_DIR"
 
-IMAGE_NAME=docker.nrk.no:5000/origo/node4_npm3
+IMAGE_NAME=docker.nrk.no:5000/origo/node5_npm2
 
 IMAGE_TAG=$(image_tag)
 IMAGE_ID="$IMAGE_NAME:$IMAGE_TAG"
