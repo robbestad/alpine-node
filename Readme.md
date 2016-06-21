@@ -3,12 +3,12 @@
 Note: Images are not automatically built and pushed to docker.nrk.no
 
 Configure `Dockerfile` with node version and npm version, then run the follow command to tag image with settings
-```bash
+```
 IMAGE_TAG=baseimage_nodeversion_npmversion ./build-docker.sh
 ```
 
 Example:
-```bash
+```
 IMAGE_TAG=alpine22_node4.4.5_npm2.15.6 ./build-docker.sh
 ```
 
