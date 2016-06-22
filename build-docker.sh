@@ -1,32 +1,22 @@
 #!/bin/bash
 
-function image_tag {
-    if [ -z "$IMAGE_TAG" ]
-    then
-        echo latest
-    else
-        echo $IMAGE_TAG
-    fi
-}
+if [ -z "$IMAGE_TAG" ]
+then
+    echo "IMAGE_TAG required"
+    exit 1
+else
+    echo $IMAGE_TAG
+fi
+
 
 BASEDIR=$(pwd)
-RUNNING_DIR=$(dirname $0)
 
 WORKSPACE="$BASEDIR"
-DOCKER_ROOT="$WORKSPACE/$RUNNING_DIR"
-
+DOCKER_ROOT="$WORKSPACE/$1"
 IMAGE_NAME=docker.nrk.no/origo/docker-node
-
-IMAGE_TAG=$(image_tag)
 IMAGE_ID="$IMAGE_NAME:$IMAGE_TAG"
 
 echo "Building Docker image $IMAGE_NAME with tag $IMAGE_TAG from $DOCKER_ROOT."
 
 docker build -t "$IMAGE_ID" "$DOCKER_ROOT" || exit 1
 docker push "$IMAGE_ID" || exit 1
-
-if [ "$IMAGE_TAG" != "latest" ]
-then
-    docker tag -f "$IMAGE_ID" "$IMAGE_NAME:latest" || exit 1
-    docker push "$IMAGE_NAME:latest" || exit 1
-fi
