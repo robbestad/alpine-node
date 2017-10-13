@@ -1,4 +1,4 @@
-# Repo used for building docker images with node for Origo
+# Docker image with node for Origo
 
 Note: Images are not automatically built and pushed to dtr.nrk.no
 
