@@ -1,23 +1,30 @@
-## Repo used for building docker images with node for Origo
+# Repo used for building docker images with node for Origo
 
-Note: Images are not automatically built and pushed to docker.nrk.no
+Note: Images are not automatically built and pushed to dtr.nrk.no
 
 Configure `Dockerfile` with node version and npm version, test build with
+
 ```
-docker build alpine|debian
+docker build alpine
 ```
 
 Then run the follow command to tag image with settings, and push to docker.nrk.no
 ```
-IMAGE_TAG=baseimage_nodeversion_npmversion ./build-docker.sh alpine|debian
+IMAGE_TAG=baseimage_nodeversion_npmversion ./build-docker.sh alpine
 ```
 
 Example:
 ```
-IMAGE_TAG=alpine22_node4.4.5 ./build-docker.sh alpine
-IMAGE_TAG=base71_node4.4.4_npm2.15.6 ./build-docker.sh debian
+IMAGE_TAG=alpine22_node8.6 ./build-docker.sh alpine
 ```
 
-To build alpine without NPM, add `--without-npm` to the `CONFIG_FLAGS` env variable
+https://dtr.nrk.no/repositories/origo/docker-node/tags
 
-Existing tags are listed at https://docker.nrk.no/repositories/origo/docker-node/tags
+### USAGE
+
+Create a Dockerfile and add the following FROM:
+
+```
+FROM dtr.nrk.no/origo/origo-docker-node:alpine22_node8.6
+
+```

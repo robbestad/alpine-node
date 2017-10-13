@@ -13,10 +13,13 @@ BASEDIR=$(pwd)
 
 WORKSPACE="$BASEDIR"
 DOCKER_ROOT="$WORKSPACE/$1"
-IMAGE_NAME=docker.nrk.no/origo/docker-node
+IMAGE_NAME=dtr.nrk.no/origo/origo-docker-node
 IMAGE_ID="$IMAGE_NAME:$IMAGE_TAG"
 
 echo "Building Docker image $IMAGE_NAME with tag $IMAGE_TAG from $DOCKER_ROOT."
 
+echo docker build -t "$IMAGE_ID" "$DOCKER_ROOT" || exit 1
 docker build -t "$IMAGE_ID" "$DOCKER_ROOT" || exit 1
+echo docker push "$IMAGE_ID" || exit 1
 docker push "$IMAGE_ID" || exit 1
+
