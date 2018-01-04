@@ -2,7 +2,7 @@
 
 Tag and run
 ```
-IMAGE_TAG=latest ./docker-up.sh alpine
+IMAGE_NAME=svena/alpine_node IMAGE_TAG=latest ./docker-up.sh alpine
 ```
 
 ### USAGE
