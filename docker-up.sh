@@ -13,7 +13,7 @@ BASEDIR=$(pwd)
 
 WORKSPACE="$BASEDIR"
 DOCKER_ROOT="$WORKSPACE/$1"
-IMAGE_NAME=dtr.nrk.no/origo/origo-docker-node
+IMAGE_NAME=svena/alpine_node
 IMAGE_ID="$IMAGE_NAME:$IMAGE_TAG"
 
 echo "Building Docker image $IMAGE_NAME with tag $IMAGE_TAG from $DOCKER_ROOT."

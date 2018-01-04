@@ -1,7 +1,8 @@
 # Inspired by https://github.com/mhart/alpine-node/blob/master/Dockerfile
-FROM docker.nrk.no/linuxadmin/alpine_baseimage:22
+FROM alpine:3.6
+#FROM docker.nrk.no/linuxadmin/alpine_baseimage:22
 
-ENV VERSION=v8.7.0 NPM_VERSION=5.3.0
+ENV VERSION=v8.9.3 NPM_VERSION=5.6.0
 
 MAINTAINER Sven A Robbestad
 
